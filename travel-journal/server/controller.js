@@ -1,11 +1,17 @@
 require("dotenv").config()
 const Sequelize = require("sequelize")
 
-const { CONNECTION_ID } = process
+const { CONNECTION_ID } = process.env
 
 const sequelize = new Sequelize(CONNECTION_ID, {
-    
-})
+    dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+            rejectUnauthorized: false
+        }
+    }
+  });
+  
 
 module.exports = {
     seed: (req, res) => {
@@ -18,7 +24,12 @@ module.exports = {
                 name varchar
             );
 
-            *****YOUR CODE HERE*****
+            CREATE TABLE cities(
+                city_id SERIAL PRIMARY KEY,
+                name VARCHAR,
+                rating INTEGER,
+                country_id INTEGER REFERENCES countries(country_id)
+            );
 
             create table cities (
                 city_id serial primary key,

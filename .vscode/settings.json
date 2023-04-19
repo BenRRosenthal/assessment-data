@@ -1,0 +1,16 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": false
+                }
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "assessment-data",
+            "connectString": "postgresql://BenRRosenthal:v2_43AY3_JzKaYGWeCMnbuNGytLCpHk2@db.bit.io:5432/BenRRosenthal/assessment-data"
+        }
+    ]
+}
